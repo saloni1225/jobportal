@@ -57,13 +57,18 @@ export const postJob = async (req, res) => {
 //Users
 export const getAllJobs = async (req, res) => {
   try {
-    const keyword = req.query.keyword || "";
-    const query = {
-      $or: [
-        { title: { $regex: keyword, $options: "i" } },
-        { description: { $regex: keyword, $options: "i" } },
-      ],
-    };
+    const keyword = (req.query.keyword || "").trim();
+    const query = keyword
+      ? {
+          $or: [
+            { title: { $regex: keyword, $options: "i" } },
+            { description: { $regex: keyword, $options: "i" } },
+            { location: { $regex: keyword, $options: "i" } },
+            { jobType: { $regex: keyword, $options: "i" } },
+            { requirements: { $elemMatch: { $regex: keyword, $options: "i" } } },
+          ],
+        }
+      : {};
     const jobs = await Job.find(query)
       .populate({
         path: "company",

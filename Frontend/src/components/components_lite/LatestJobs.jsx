@@ -3,7 +3,7 @@ import JobCards from "./JobCards";
 import { useSelector } from "react-redux";
 
 const LatestJobs = () => {
-  const allJobs = useSelector((state) => state.jobs?.allJobs || []); // Safely access allJobs
+  const allJobs = useSelector((state) => state.job?.allJobs || []); // Safely access allJobs
 
   return (
     <div className="max-w-7xl mx-auto my-20">
@@ -12,7 +12,7 @@ const LatestJobs = () => {
       </h2>
 
       {/* Job Cards */}
-      <div className="grid grid-cols-3 gap-4 my-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-5">
         {allJobs.length === 0 ? (
           <span>No Job Available</span>
         ) : (

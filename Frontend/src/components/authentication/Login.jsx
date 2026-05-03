@@ -23,6 +23,7 @@ const Login = () => {
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
+  // eslint-disable-next-line no-unused-vars
   const ChangeFilehandler = (e) => {
     setInput({ ...input, file: e.target.files?.[0] });
   };
@@ -41,6 +42,7 @@ const Login = () => {
         navigate("/");
         toast.success(res.data.message);
       }
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Login failed");
     } finally {
@@ -52,17 +54,17 @@ const Login = () => {
     if (user) {
       navigate("/");
     }
-  }, []);
+  }, [navigate, user]);
 
   return (
     <div>
       <Navbar></Navbar>
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="flex items-center justify-center max-w-7xl mx-auto px-4">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-500 rounded-md p-4 my-10"
+          className="w-full md:w-1/2 border border-gray-300 bg-white rounded-md p-6 my-10 shadow-sm"
         >
-          <h1 className="font-bold text-xl mb-5 text-center text-white-600">
+          <h1 className="font-bold text-2xl mb-5 text-center text-gray-900">
             Login
           </h1>
           <div className="my-2">
@@ -124,19 +126,20 @@ const Login = () => {
           ) : (
             <button
               type="submit"
-              className="w-3/4 py-3 my-3 text-white flex items-center justify-center max-w-7xl mx-auto bg-blue-600 hover:bg-blue-800/90 rounded-md"
+              className="w-full py-3 my-3 text-white flex items-center justify-center max-w-7xl mx-auto bg-blue-600 hover:bg-blue-700 rounded-md font-medium"
             >
               Login
             </button>
           )}
 
           <div className=" ">
-            <p className="text-gray-700  text-center my-2">
+            <p className="text-gray-700 text-center my-2">
               Create new Account{" "}
-              <Link to="/register" className="text-blue-700">
-                <button className=" w-1/2 py-3 my-3 text-white flex items-center justify-center max-w-7xl mx-auto bg-green-600 hover:bg-green-800/90 rounded-md">
-                  Register
-                </button>
+              <Link
+                to="/register"
+                className="block w-full py-3 my-3 text-white bg-green-600 hover:bg-green-700 rounded-md font-medium"
+              >
+                Register
               </Link>
             </p>
           </div>

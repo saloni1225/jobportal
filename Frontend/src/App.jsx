@@ -33,27 +33,27 @@ const appRouter = createBrowserRouter([
     element: <Description />,
   },
   {
-    path: "/Profile",
+    path: "/profile",
     element: <Profile />,
   },
   {
-    path: "/PrivacyPolicy",
+    path: "/privacy-policy",
     element: <PrivacyPolicy />,
   },
   {
-    path: "/TermsofService",
+    path: "/terms-of-service",
     element: <TermsofService />,
   },
   {
-    path: "/Jobs",
+    path: "/jobs",
     element: <Jobs />,
   },
   {
-    path: "/Home",
+    path: "/home",
     element: <Home />,
   },
   {
-    path: "/Browse",
+    path: "/browse",
     element: <Browse />,
   },
   

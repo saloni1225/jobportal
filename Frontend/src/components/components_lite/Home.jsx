@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { loading, error } = useGetAllJobs(); // Trigger data fetch
-  const jobs = useSelector((state) => state.jobs.allJobs); // Access Redux state
+  const jobs = useSelector((state) => state.job.allJobs); // Access Redux state
 
   console.log("Jobs in Component:", { loading, error, jobs }); // Debug
   const { user } = useSelector((store) => store.auth);
@@ -20,7 +20,7 @@ const Home = () => {
     if (user?.role === "Recruiter") {
       navigate("/admin/companies");
     }
-  }, []);
+  }, [navigate, user]);
 
   return (
     <div className="min-h-screen flex flex-col bg-neutral-950 text-gray-200">

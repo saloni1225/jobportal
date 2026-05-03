@@ -16,9 +16,13 @@ const Navbar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.post(`${USER_API_ENDPOINT}/logout`, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `${USER_API_ENDPOINT}/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
       if (res?.data?.success) {
         dispatch(setUser(null));
         navigate("/");
@@ -67,17 +71,17 @@ const Navbar = () => {
           ) : (
             <>
               <li>
-                <Link to={"/Home"} className="hover:text-black transition">
+                <Link to={"/home"} className="hover:text-black transition">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to={"/Browse"} className="hover:text-black transition">
+                <Link to={"/browse"} className="hover:text-black transition">
                   Browse
                 </Link>
               </li>
               <li>
-                <Link to={"/Jobs"} className="hover:text-black transition">
+                <Link to={"/jobs"} className="hover:text-black transition">
                   Jobs
                 </Link>
               </li>
@@ -92,7 +96,7 @@ const Navbar = () => {
             <Link to={"/login"}>
               <Button
                 variant="outline"
-                className="rounded-full border-gray-300 hover:border-gray-00 bg-gray-950 hover:bg-gray-900 transition text-sm sm:text-base"
+                className="rounded-full border-gray-900 bg-gray-900 text-white hover:bg-black transition text-sm sm:text-base"
               >
                 Login
               </Button>
@@ -146,19 +150,19 @@ const Navbar = () => {
                   ) : (
                     <>
                       <Link
-                        to={"/Home"}
+                        to={"/home"}
                         className="hover:text-black transition"
                       >
                         Home
                       </Link>
                       <Link
-                        to={"/Browse"}
+                        to={"/browse"}
                         className="hover:text-black transition"
                       >
                         Browse
                       </Link>
                       <Link
-                        to={"/Jobs"}
+                        to={"/jobs"}
                         className="hover:text-black transition"
                       >
                         Jobs
@@ -172,7 +176,7 @@ const Navbar = () => {
                 {user && user.role === "Student" && (
                   <div className="flex items-center gap-2 cursor-pointer hover:text-black transition">
                     <User2 size={18} />
-                    <Link to={"/Profile"}>Profile</Link>
+                    <Link to={"/profile"}>Profile</Link>
                   </div>
                 )}
 
