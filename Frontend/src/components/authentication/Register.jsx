@@ -183,20 +183,17 @@ const Register = () => {
               className="cursor-pointer"
             />
           </div>
-          {loading ? (
-            <div className="flex items-center justify-center my-10">
-              <div className="spinner-border text-blue-600" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          ) : (
-            <button
-              type="submit"
-              className="block w-full py-3 my-3 text-white bg-black hover:bg-black/80 rounded-md"
-            >
-              Register
-            </button>
-          )}
+          <button
+  type="submit"
+  disabled={loading}
+  className={`block w-full py-3 my-3 text-white rounded-md transition ${
+    loading
+      ? "bg-gray-400 cursor-not-allowed"
+      : "bg-black hover:bg-black/80 cursor-pointer"
+  }`}
+>
+  {loading ? "Registering..." : "Register"}
+</button>
 
           <p className="text-gray-500 text-md my-2">
             Already have an account?{" "}
