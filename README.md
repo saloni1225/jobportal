@@ -1,4 +1,4 @@
-# Job Portal 🚀
+# Job Portal
 
 A full-stack job portal application designed to connect job seekers with employers. This platform provides a seamless experience for posting job listings, applying to positions, and managing applications.
 
@@ -20,7 +20,7 @@ A full-stack job portal application designed to connect job seekers with employe
 
 ---
 
-## ✨ Features
+## Features
 
 ### For Job Seekers
 - 🔐 User authentication and profile management
