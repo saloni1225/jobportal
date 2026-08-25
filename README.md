@@ -32,11 +32,11 @@ A full-stack job portal application designed to connect job seekers with employe
 - 📱 Responsive mobile-friendly interface
 
 ### For Employers
-- 📢 Post and manage job listings
-- 👥 Review applications
-- 📧 Communicate with candidates
-- 📊 Application analytics
-- 🎯 Target job seekers by skills and experience
+-  Post and manage job listings
+-  Review applications
+-  Communicate with candidates
+-  Application analytics
+-  Target job seekers by skills and experience
 
 ### General Features
 - 🎨 Modern UI with smooth animations
