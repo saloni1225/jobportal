@@ -4,6 +4,7 @@ import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/components_lite/Home";
+import Landing from "./components/components_lite/Landing.jsx";
 import PrivacyPolicy from "./components/components_lite/PrivacyPolicy.jsx";
 import TermsofService from "./components/components_lite/TermsofService.jsx";
 import Jobs from "./components/components_lite/Jobs.jsx";
@@ -19,7 +20,7 @@ import Applicants from "./components/admincomponent/Applicants";
 import ProtectedRoute from "./components/admincomponent/ProtectedRoute";
 
 const appRouter = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <Landing /> },
   {
     path: "/login",
     element: <Login />,

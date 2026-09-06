@@ -21,13 +21,13 @@ const userSchema = new mongoose.Schema(
     },
     pancard: {
       type: String,
-      required: true,
       unique: true,
+      sparse: true,
     },
     adharcard: {
       type: String,
-      required: true,
       unique: true,
+      sparse: true,
     },
     role: {
       type: String,
@@ -53,6 +53,26 @@ const userSchema = new mongoose.Schema(
       profilePhoto: {
         type: String, // URL to profile photo file
         default: "",
+      },
+      education: [
+        {
+          degree: { type: String },
+          institution: { type: String },
+          year: { type: String },
+        },
+      ],
+      experience: [
+        {
+          role: { type: String },
+          company: { type: String },
+          duration: { type: String },
+        },
+      ],
+      preferredRole: {
+        type: String,
+      },
+      preferredLocation: {
+        type: String,
       },
     },
   },

@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-export const EXPERIENCE_OPTIONS = ["0-3", "3-5", "5-7", "7+"];
-export const SALARY_OPTIONS = [
+const EXPERIENCE_OPTIONS = ["0-3", "3-5", "5-7", "7+"];
+const SALARY_OPTIONS = [
   { value: "0-5", label: "0-5 LPA" },
   { value: "5-10", label: "5-10 LPA" },
   { value: "10-20", label: "10-20 LPA" },
   { value: "20+", label: "20+ LPA" },
 ];
-export const CATEGORY_OPTIONS = [
-  "Frontend",
-  "Backend",
-  "Fullstack",
-  "Data / ML",
-  "Mobile",
-  "DevOps",
-  "Design",
-  "Other",
-];
+const CATEGORY_OPTIONS = ["Frontend", "Backend", "Fullstack", "Data / ML", "Mobile", "DevOps", "Design", "Other"];
 
 const Section = ({ title, defaultOpen = false, children }) => {
   const [open, setOpen] = useState(defaultOpen);
@@ -29,28 +20,15 @@ const Section = ({ title, defaultOpen = false, children }) => {
         className="flex w-full items-center justify-between text-sm font-semibold text-gray-800"
       >
         {title}
-        <ChevronDown
-          className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
-        />
+        <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
-      <div
-        className={`grid transition-all duration-200 ease-in-out ${
-          open ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="overflow-hidden space-y-2">{children}</div>
-      </div>
+      {open && <div className="mt-3 space-y-2">{children}</div>}
     </div>
   );
 };
 
 const CheckboxRow = ({ id, checked, label, onChange }) => (
-  <label
-    htmlFor={id}
-    className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer hover:text-gray-900 transition-colors"
-  >
+  <label htmlFor={id} className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer hover:text-gray-900">
     <input
       id={id}
       type="checkbox"
@@ -62,11 +40,7 @@ const CheckboxRow = ({ id, checked, label, onChange }) => (
   </label>
 );
 
-/**
- * Controlled multi-select filter panel. Pure content — the caller (Jobs.jsx)
- * decides whether to render it in a sticky sidebar or inside a mobile drawer.
- */
-const FilterCard = ({ filters, onToggle, onClearAll, locations = [], jobTypes = [], activeCount = 0 }) => {
+const BrowseFilters = ({ filters, onToggle, onClearAll, locations, jobTypes, activeCount }) => {
   return (
     <div className="rounded-xl border border-gray-100 bg-white shadow-sm p-4">
       <div className="flex items-center justify-between mb-1">
@@ -75,7 +49,7 @@ const FilterCard = ({ filters, onToggle, onClearAll, locations = [], jobTypes = 
           <button
             type="button"
             onClick={onClearAll}
-            className="text-xs font-semibold text-violet-600 hover:text-violet-700 transition-colors"
+            className="text-xs font-semibold text-violet-600 hover:text-violet-700"
           >
             Clear all
           </button>
@@ -147,4 +121,4 @@ const FilterCard = ({ filters, onToggle, onClearAll, locations = [], jobTypes = 
   );
 };
 
-export default FilterCard;
+export default BrowseFilters

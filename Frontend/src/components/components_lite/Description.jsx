@@ -7,6 +7,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setSingleJob } from "@/redux/jobSlice";
 import { toast } from "sonner";
+import JobMatch from "./JobMatch";
 
 const Description = () => {
   const params = useParams();
@@ -83,7 +84,7 @@ const Description = () => {
 
   return (
     <div>
-      <div className="max-w-7xl mx-auto my-10 ">
+      <div className="max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="font-bold text-xl ">{singleJob?.title}</h1>
@@ -164,6 +165,15 @@ const Description = () => {
             </span>
           </h1>
         </div>
+
+        {user?.role === "Student" && (
+          <div className="mt-6">
+            <JobMatch
+              userSkills={user?.profile?.skills || []}
+              jobSkills={singleJob?.requirements || []}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
