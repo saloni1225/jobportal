@@ -2,7 +2,7 @@
 
 A full-stack job portal application designed to connect job seekers with employers. This platform provides a seamless experience for posting job listings, applying to positions, and managing applications.
 
-**Live Demo:** [https://job-portal1-delta.vercel.app](https://job-portal1-delta.vercel.app)
+**Live Demo:** [https://jobportal-six-iota.vercel.app](https://jobportal-six-iota.vercel.app)
 
 ---
 
