@@ -20,7 +20,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://jobportal-six-roan.vercel.app",
+    "https://jobportal-32j6i31sz-spcprj.vercel.app",
     process.env.FRONTEND_URL,
   ].filter(Boolean),
   credentials: true,
